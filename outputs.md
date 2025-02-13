@@ -86,7 +86,7 @@ main ENDP
 END main
 ```
 
-# Question 06:
+### Question 06:
 ```asm
 include irvine32.inc
 
@@ -120,7 +120,7 @@ END main
 
 ```
 
-# Question 07:
+### Question 07:
 ```asm
 include irvine32.inc
 
@@ -128,7 +128,7 @@ include irvine32.inc
 	val4 wARRAY 10, 20, 30
 ```
 
-# Question 08:
+### Question 08:
 ```asm
 include irvine32.inc
 
@@ -136,7 +136,7 @@ include irvine32.inc
 	dArray DWORD 50 dup(?)
 ```
 
-# Question 09:
+### Question 09:
 ```asm
 include irvine32.inc
 
@@ -144,7 +144,7 @@ include irvine32.inc
 	string BYTE 500 dup("TEST")
 ```
 
-# Question 10:
+### Question 10:
 ```asm
 include irvine32.inc
 
