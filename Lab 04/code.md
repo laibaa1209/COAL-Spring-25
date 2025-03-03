@@ -98,7 +98,7 @@ main endp
 end main
 ```
 
-## Question 05:
+## Question 06:
 ```asm
 include irvine32.inc
 
@@ -115,7 +115,7 @@ main endp
 end main
 ```
 
-## Question 06:
+## Question 07:
 ```asm
 include irvine32.inc
 
@@ -136,6 +136,31 @@ main PROC
 	MOVZX EAX, B
 	call WriteHex
 	call crlf
+	
+	exit
+main endp
+end main
+```
+
+## Question 08:
+```asm
+include irvine32.inc
+
+.data
+	val1 BYTE 10h
+	val2 WORD 8000h
+	val3 DWORD 0FFFFh
+	val4 WORD 7FFFh
+
+.code
+main PROC
+	INC val2 ; val2 = 8001h
+	
+	MOV EAX, 0
+	SUB EAX, val3
+
+	MOV AX, val2
+	SUB AX, val4
 	
 	exit
 main endp
