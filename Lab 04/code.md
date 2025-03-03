@@ -97,3 +97,47 @@ main PROC
 main endp
 end main
 ```
+
+## Question 05:
+```asm
+include irvine32.inc
+
+.data
+	SecondsinDays = 24 * 3600
+
+.code
+main PROC
+	MOV EAX, SecondsinDays
+	
+	call WriteInt
+	exit
+main endp
+end main
+```
+
+## Question 06:
+```asm
+include irvine32.inc
+
+.data
+	A Word 0FF10h
+	B Word 0E10Bh
+
+.code
+main PROC
+	MOV AX, A
+	XCHG AX, B
+	MOV A, AX
+	
+	MOVZX EAX, A
+	call WriteHex
+	call crlf
+
+	MOVZX EAX, B
+	call WriteHex
+	call crlf
+	
+	exit
+main endp
+end main
+```
