@@ -49,3 +49,23 @@ main endp
 end main
 ```
 
+# Question 4(part 1):
+```asm
+include irvine32.inc
+
+.code
+main PROC
+	MOV AX, 89
+	
+	ADD AX, 75h
+	ADD AX, 1101b
+
+	SUB AX, 46q
+	SUB AX, 28
+
+	MOVZX EAX, AX
+	call WriteInt
+	exit
+main endp
+end main
+```
