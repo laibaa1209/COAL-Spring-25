@@ -1,6 +1,6 @@
 # Lab 04
 
-## Question 01:
+## Question 02:
 ```asm
 include irvine32.inc
 
@@ -30,3 +30,22 @@ main endp
 end main
 
 ```
+
+## Question 03:
+```asm
+include irvine32.inc
+
+.data
+	varB BYTE +10
+	varW WORD -150
+	varD DWORD 600
+.code
+main PROC
+	MOVZX EAX, varB
+	MOVSX EBX, varW
+	MOV ECX, varD
+	exit
+main endp
+end main
+```
+
