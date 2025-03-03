@@ -49,7 +49,8 @@ main endp
 end main
 ```
 
-# Question 4(part 1):
+## Question 4
+### part 1:
 ```asm
 include irvine32.inc
 
@@ -64,6 +65,33 @@ main PROC
 	SUB AX, 28
 
 	MOVZX EAX, AX
+	call WriteInt
+	exit
+main endp
+end main
+```
+
+### part 2:
+```asm
+include irvine32.inc
+
+.data
+	Val1 DWORD 25h
+	Val2 BYTE 36o
+	Val3 WORD 20d
+
+.code
+main PROC
+	MOV EAX, Val1 
+	MOVZX EBX, Val2
+
+	ADD EAX, EBX
+	SUB EAX, 654h
+	
+	MOVZX EBX, Val3
+
+	ADD EAX, EBX
+
 	call WriteInt
 	exit
 main endp
