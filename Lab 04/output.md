@@ -10,11 +10,8 @@
 ## Question 04(pt 2):
 ![image](https://github.com/user-attachments/assets/3006100c-f19b-497f-ae80-67a3e477fdf8)
 
-## Question 05:
+## Question 06:
 ![image](https://github.com/user-attachments/assets/77f9989c-5027-4141-b615-71c2fa532e54)
 
-## Question 06:
+## Question 07:
 ![image](https://github.com/user-attachments/assets/6cbf29fe-3ee1-4b79-af98-5bfe5e38952f)
-
-## QUestion 07:
-
