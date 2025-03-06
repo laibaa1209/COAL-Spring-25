@@ -165,3 +165,50 @@ main PROC
 main ENDP
 END main
 ```
+
+## Question 05:
+```asm
+include irvine32.inc
+
+.data
+    arrayB BYTE 60, 70, 80       
+    arrayW WORD 150, 250, 350    
+    arrayD DWORD 600, 1200, 1800 
+
+.code
+main PROC
+    ; Working with BYTE array
+    mov esi, offset arrayB      
+    movzx eax, BYTE ptr [esi]   
+
+    add esi, (2 * type arrayB)  
+    add al, [esi]               
+
+    call writeint              
+    call crlf
+
+    mov esi, offset arrayW   
+    movzx ebx, WORD ptr [esi]  
+
+    add esi, (2 * type arrayW)  
+    add bx, [esi]
+    mov ax, bx
+
+    call writeint               
+    call crlf
+
+    mov esi, offset arrayD      
+    mov ecx, DWORD ptr [esi]   
+
+    add esi, (2 * type arrayD)  
+    add ecx, [esi]             
+    mov eax, ecx
+
+    call writeint               
+    call crlf
+
+exit
+main endp
+end main
+
+```
