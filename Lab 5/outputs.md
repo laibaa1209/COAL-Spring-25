@@ -6,3 +6,6 @@
 
 ## Question 03:
 ![image](https://github.com/user-attachments/assets/194a5c25-7cc9-4001-b651-8916533e709b)
+
+## Question 04:
+![image](https://github.com/user-attachments/assets/c71b45b5-fa37-4cd9-9576-efea3733b5ec)
