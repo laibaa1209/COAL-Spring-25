@@ -44,3 +44,50 @@ main proc
 main endp
 end main
 ```
+
+## Question 02:
+```asm
+include irvine32.inc
+
+.data
+	arrayB BYTE 10, 20, 30 
+	arrayW WORD 150, 250, 350 
+	arrayD DWORD 600, 1200, 1800
+	SUM1 DWORD ?
+	SUM2 DWORD ?
+	SUM3 DWORD ?
+.code
+main PROC
+	MOVZX EAX, arrayB[0]
+	MOVZX EBX, arrayW[0]
+	ADD EAX, EBX
+	ADD EAX, arrayD[0]
+	MOV SUM1, EAX
+	call writeint
+	call crlf
+
+	MOVZX EAX, arrayB[1]
+	MOVZX EBX, arrayW[2]
+	ADD EAX, EBX
+	ADD EAX, arrayD[4]
+	MOV SUM2, EAX
+	call writeint
+	call crlf
+
+	MOVZX EAX, arrayB[2]
+	MOVZX EBX, arrayW[4]
+	ADD EAX, EBX
+	ADD EAX, arrayD[8]
+	MOV SUM1, EAX
+	call writeint
+	call crlf
+
+exit
+main endp
+end main
+```
+
+## Question 03:
+```asm
+
+```
