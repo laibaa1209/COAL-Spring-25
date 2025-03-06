@@ -89,5 +89,44 @@ end main
 
 ## Question 03:
 ```asm
+include irvine32.inc
 
+.data
+	array1 BYTE 10, 20, 30, 40
+	array2 BYTE 4 DUP (?)
+.code
+main PROC
+	MOV ESI, offset array1+3
+	MOV EDI, offset array2
+
+	MOV AL, [ESI]
+	DEC ESI
+	MOV [EDI], AL
+	INC EDI
+
+	MOV AL, [ESI]
+	DEC ESI
+	MOV [EDI], AL
+	INC EDI
+	
+	MOV AL, [ESI]
+	DEC ESI
+	MOV [EDI], AL
+	INC EDI
+
+	MOV AL, [ESI]
+	MOV [EDI], AL
+
+	mov esi, offset array2
+	mov ecx, lengthof array2
+	l: 
+		movzx eax, BYTE ptr [esi]
+		call writeint
+		call crlf
+		INC esi
+
+	loop l
+exit
+main endp
+end main
 ```
