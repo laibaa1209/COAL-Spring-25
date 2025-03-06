@@ -130,3 +130,38 @@ exit
 main endp
 end main
 ```
+
+## Question 04:
+```asm
+include irvine32.inc
+
+.data
+    array DWORD 70, 80, 1000, 89, 60  
+    ans DWORD ?                       
+
+.code
+main PROC
+    mov esi, offset array 
+    mov eax, [esi]         
+
+    add esi, type array    
+    sub eax, [esi]         
+
+    add esi, type array    
+    sub eax, [esi]         
+
+    add esi, type array    
+    sub eax, [esi]         
+
+    add esi, type array    
+    sub eax, [esi]         
+
+    mov ans, eax          
+    
+    call writeint         
+    call crlf
+
+    exit
+main ENDP
+END main
+```
