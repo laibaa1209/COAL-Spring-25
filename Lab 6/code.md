@@ -2,29 +2,31 @@
 
 ## Question 01:
 ```asm
-include Irvine32.inc
+include irvine32.inc
 
 .code
 main proc
-    mov ecx, 10       
-    mov ebx, 1        
-    mov edx, 0         
+	mov edx, 0
+	mov ecx, 10
+	mov ebx, 1
 
-fibonacci:
-    mov eax, edx      
-    call WriteInt     
-    call Crlf          
-
-    add edx, ebx       
-    xchg edx, ebx      
-
-    loop fibonacci     
-
-    exit               
+	fibonacci:
+		mov eax, edx
+		call WriteDec
+		call crlf
+		
+		add edx, ebx
+		xchg edx, ebx
+	
+	loop fibonacci
+	exit
 
 main endp
 end main
 ```
+## Output:
+![image](https://github.com/user-attachments/assets/50b36bf8-e234-4bd7-9448-5eabc7d7534f)
+
 
 ## Question 02:
 
@@ -156,3 +158,10 @@ end main
 ```
 ## output
 ![image](https://github.com/user-attachments/assets/804722ed-a906-46bb-9d02-ecfa90cdbe0f)
+
+## Question 03:
+```asm
+
+```
+
+## output:
