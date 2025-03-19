@@ -92,37 +92,6 @@ end main
 ## Output
 ![image](https://github.com/user-attachments/assets/6c7a0157-c93c-47a3-8690-564a0af78c94)
 
-
-### pt 4
-```asm
-include irvine32.inc
-
-.code
-main proc
-	mov ebx, 4
-	mov ecx, 4
-
-	outter_pattern:
-		mov eax, 1
-		mov edx, ecx
-		mov ecx, ebx
-		dec ebx
-
-		inner_pattern:
-			call writedec
-			inc eax
-		loop inner_pattern
-
-	call crlf
-	mov ecx, edx
-
-	loop outter_pattern
-
-exit
-main endp
-end main
-```
-
 ### pt 3
 ```asm
 include irvine32.inc
@@ -156,6 +125,34 @@ end main
 ## ouput
 ![image](https://github.com/user-attachments/assets/d30d2022-dddf-49b6-9bca-124f7b6a4537)
 
+### pt 4
+```asm
+include irvine32.inc
 
+.code
+main proc
+	mov ebx, 4
+	mov ecx, 4
+
+	outter_pattern:
+		mov eax, 1
+		mov edx, ecx
+		mov ecx, ebx
+		dec ebx
+
+		inner_pattern:
+			call writedec
+			inc eax
+		loop inner_pattern
+
+	call crlf
+	mov ecx, edx
+
+	loop outter_pattern
+
+exit
+main endp
+end main
+```
 ## output
 ![image](https://github.com/user-attachments/assets/804722ed-a906-46bb-9d02-ecfa90cdbe0f)
