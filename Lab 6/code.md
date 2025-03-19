@@ -165,3 +165,44 @@ end main
 ```
 
 ## output:
+
+## Question 04:
+```asm
+include irvine32.inc
+
+.data
+	source byte "Gotta copy this string",0
+	target byte 22 dup (?)
+
+.code
+main proc
+	mov esi, 0
+	mov edi, 0
+	mov ecx, 22
+	
+	transfer:
+		mov al, source[esi]
+		mov target[edi], al
+	
+		inc esi
+		inc edi
+	loop transfer
+
+	mov edx, offset target
+	call writestring
+
+	exit
+
+main endp
+end main
+```
+
+## output:
+![image](https://github.com/user-attachments/assets/dea0d5eb-3595-4954-92be-d221d9c068fc)
+
+## Question 05:
+```asm
+
+```
+
+## output:
