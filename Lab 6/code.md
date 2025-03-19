@@ -244,3 +244,11 @@ end main
 
 ## output:
 ![image](https://github.com/user-attachments/assets/d6ab3a44-b213-4568-a047-a2375dfae156)
+
+
+## Question 06:
+```asm
+
+```
+## output
+## output:
