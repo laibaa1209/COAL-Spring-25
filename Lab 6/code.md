@@ -202,7 +202,45 @@ end main
 
 ## Question 05:
 ```asm
+include irvine32.inc
 
+.data
+	arr word 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+.code
+main proc
+	mov esi, offset arr
+	mov edi, offset arr + sizeof arr - 2
+	mov ecx, lengthof arr/2
+	
+	transfer:
+		mov ax, [esi]
+		xchg ax, [edi]
+		mov [esi], ax
+	
+		add esi, 2
+		sub edi, 2
+	loop transfer
+
+	mov ecx, 9
+	mov esi, offset arr
+
+	print:
+		mov ax, [esi]
+		movzx eax, ax
+		call writedec
+
+		mov al, ' '
+		call writechar
+		
+		add esi, 2
+
+	loop print
+	exit
+
+main endp
+end main
 ```
 
 ## output:
+![image](https://github.com/user-attachments/assets/d6ab3a44-b213-4568-a047-a2375dfae156)
