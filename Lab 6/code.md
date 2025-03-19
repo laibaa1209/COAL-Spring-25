@@ -250,5 +250,4 @@ end main
 ```asm
 
 ```
-## output
 ## output:
