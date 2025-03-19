@@ -248,6 +248,62 @@ end main
 
 ## Question 06:
 ```asm
+include irvine32.inc
 
+.data
+	write_id byte "Enter Employee ID: "
+	id word 5 dup (?)
+
+	write_name byte "Enter the name of Employee: "
+	e_name byte 5 * 8 dup (?)
+
+.code
+main proc
+	mov esi, 0
+	mov ecx, 5
+
+	credentials:
+		mov edx, offset write_id
+		call writestring
+		call ReadInt
+		mov id[esi], ax
+
+		mov edx, offset write_name
+		call writestring
+
+		mov edx, offset e_name
+		call ReadString
+		
+
+		add esi, 2
+
+	loop credentials
+
+	mov ecx, 5
+	mov esi, offset id
+
+	print:
+		mov ax, [esi]
+		movzx eax, ax
+		call writedec
+
+		mov al, ' '
+		call writechar
+
+		; Print Employee Name
+		mov edx, offset e_name
+		add edx, esi * 8     
+		call writestring
+
+		call crlf            
+		
+		add esi, 2
+
+	loop print
+
+	exit
+
+main endp
+end main
 ```
 ## output:
