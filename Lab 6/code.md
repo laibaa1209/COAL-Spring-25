@@ -161,10 +161,126 @@ end main
 
 ## Question 03:
 ```asm
+include irvine32.inc
+
+.data
+    write_id byte "Enter Employee ID: ", 0
+    id DWORD 5 dup (?)  
+
+    write_name byte "Enter the name of Employee: ", 0
+    e_name byte 5 * 8 dup (?)  
+
+    write_birthyear byte "Enter Birth Year: ", 0
+    birth_year DWORD 5 dup (?)
+
+    write_salary byte "Enter annual salary: ", 0
+    annual_salary DWORD 5 dup(?)
+
+    prompt byte "The total annual salary is: ", 0
+
+
+.code
+main proc
+    mov esi, 0
+    mov ecx, 5  
+
+credentials:
+    mov ebx, ecx  
+
+    mov edx, offset write_id
+    call writestring
+    call ReadInt
+    mov id[esi*4], eax  
+
+    mov edx, offset write_name
+    call writestring
+
+    mov edx, offset e_name
+    mov edi, esi
+    imul edi, 8
+    add edx, edi
+    mov ecx, 8
+    call readstring
+
+    mov edx, offset write_birthyear
+    call writestring
+    call readint
+    mov birth_year[esi*4], eax
+
+    mov edx, offset write_salary
+    call writestring
+    call readint
+    mov annual_salary[esi*4], eax
+
+
+    inc esi
+
+    mov ecx, ebx
+    loop credentials
+
+    mov ecx, 5
+    mov esi, 0
+
+print:
+    mov ebx, ecx
+
+    mov eax, 32
+    call writechar
+
+    mov eax, id[esi*4]  
+    call writedec      
+
+    mov eax, 32
+    call writechar
+
+    mov edx, offset e_name
+    mov edi, esi
+    imul edi, 8
+    add edx, edi
+    mov ecx, 8
+    call writestring
+
+    mov eax, 32
+    call writechar
+
+    mov eax, birth_year[esi*4]
+    call writedec
+
+    mov eax, 32
+    call writechar
+
+    mov eax, annual_salary[esi*4]
+    call writedec
+
+    call crlf
+
+    inc esi
+
+    mov ecx, ebx
+    loop print
+
+    mov eax, 0
+    mov esi,0
+    mov ecx, lengthof annual_salary
+    cumulative:
+        add eax, annual_salary[esi*4]
+        inc esi
+
+    loop cumulative
+
+    mov edx, offset prompt
+    call writestring
+    call writedec
+    exit
+
+main endp
+end main
 
 ```
 
 ## output:
+![image](https://github.com/user-attachments/assets/725390d1-f509-43fd-9609-45bc583ee795)
+
 
 ## Question 04:
 ```asm
