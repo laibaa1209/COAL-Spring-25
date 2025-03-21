@@ -367,59 +367,50 @@ end main
 include irvine32.inc
 
 .data
-	write_id byte "Enter Employee ID: "
-	id word 5 dup (?)
-
-	write_name byte "Enter the name of Employee: "
-	e_name byte 5 * 8 dup (?)
+   arr DWORD 8, 5, 1, 2, 6
 
 .code
 main proc
-	mov esi, 0
-	mov ecx, 5
+    mov ecx, lengthof arr
 
-	credentials:
-		mov edx, offset write_id
-		call writestring
-		call ReadInt
-		mov id[esi], ax
+    outter_loop:
+        mov esi, 0
+        mov edi, 1
+        mov edx, ecx
+        mov ecx, lengthof arr -1
 
-		mov edx, offset write_name
-		call writestring
+        inner_loop:
+            mov eax, arr[esi*4]
+            cmp eax, arr[edi*4]
+            jl no_swap
 
-		mov edx, offset e_name
-		call ReadString
-		
+            xchg eax, arr[edi*4]
+            mov arr[esi*4], eax
 
-		add esi, 2
+            no_swap:
+            inc esi
+            inc edi
+            loop inner_loop
 
-	loop credentials
+            mov ecx, edx
+            loop outter_loop
 
-	mov ecx, 5
-	mov esi, offset id
+        mov esi, 0
+        mov ecx, lengthof arr
+        
+        print:
+            mov eax, arr[esi*4]
+            call writedec
+            mov eax, 32
+            call writechar
+            inc esi
 
-	print:
-		mov ax, [esi]
-		movzx eax, ax
-		call writedec
-
-		mov al, ' '
-		call writechar
-
-		; Print Employee Name
-		mov edx, offset e_name
-		add edx, esi * 8     
-		call writestring
-
-		call crlf            
-		
-		add esi, 2
-
-	loop print
-
-	exit
+            loop print
+   
+    exit
 
 main endp
 end main
 ```
 ## output:
+![image](https://github.com/user-attachments/assets/f9e33623-264c-4ecd-a934-33cd2efa1b7a)
